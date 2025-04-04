@@ -23,8 +23,6 @@ utils.in_mathzone = function()
         local buf = vim.api.nvim_get_current_buf()
         local ok, parser = pcall(ts.get_parser, buf, "latex")
         if not ok or not parser then
-          vim.api.nvim_echo({{"Latex parser not found. Please install with nvim-treesitter using \":TSInstall latex\".", "ErrorMsg"}}, true, {})
-
             vim.api.nvim_echo({{"Latex parser not found. Please install with nvim-treesitter using \":TSInstall latex\".", "ErrorMsg"}}, true, {})
             return
         end
@@ -79,7 +77,6 @@ utils.get_all_mathzones = function()
   local ok, parser = pcall(ts.get_parser, buf, "latex")
   if not ok or not parser then
     vim.api.nvim_echo({{"Latex parser not found. Please install with nvim-treesitter using \":TSInstall latex\".", "ErrorMsg"}}, true, {})
-
     return {}
   end
 
